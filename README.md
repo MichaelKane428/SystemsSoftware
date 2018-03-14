@@ -16,3 +16,16 @@ Steps to complete this assigment:
 - sudo useradd -m testuser
 
 4. Create a group for the Dev user and a group for the testuser, then assign permissions to the /var/www/ folder and /var/websitebackup folder this will apply the permissions to all subsequent within these directories.
+
+- sudo groupadd Developers
+- sudo usermod -a -G Developers Dev
+- sudo groupadd testers
+- sudo usermod -a -G testers testuser
+
+# References
+
+1. Linux website showing how to give permissions recursively to directorys. 
+- https://www.linux.com/learn/how-manage-file-and-folder-permissions-linux
+
+
+
