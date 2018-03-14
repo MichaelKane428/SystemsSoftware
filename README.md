@@ -22,12 +22,12 @@ Steps to complete this assigment:
 - sudo groupadd testers
 - sudo usermod -a -G testers testuser
 
-- Important when setting the user permissions use su - not sudo or you risk spending an hour wondering why your group doesn't have permission when it says clearly that it does.
+Important when setting the user permissions use su - not sudo or you risk spending an hour wondering why your group doesn't have permission when it says clearly that it does.
 
-- sudo chown changes who owns the group and who has access.
+-sudo chown changes who owns the group and who has access.
 - sudo chown -R root:Developers /home/michael/Desktop/SystemsSoftware/var/
 
-- chmod assigns permissions to the users and groups on the directory. u is the owner, g is the groups which have access and o is other users/groups. +rwx adds read, write and execute permissions. -rwx takes all of those permissions away.
+chmod assigns permissions to the users and groups on the directory. u is the owner, g is the groups which have access and o is other users/groups. +rwx adds read, write and execute permissions. -rwx takes all of those permissions away.
 - sudo chmod -R ug+rwx /home/michael/Desktop/SystemsSoftware/var/
 - sudo chmod -R o-rwx /home/michael/Desktop/SystemsSoftware/var/
 
