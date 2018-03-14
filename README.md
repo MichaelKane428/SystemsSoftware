@@ -31,7 +31,10 @@ chmod assigns permissions to the users and groups on the directory. u is the own
 - sudo chmod -R ug+rwx /home/michael/Desktop/SystemsSoftware/var/
 - sudo chmod -R o-rwx /home/michael/Desktop/SystemsSoftware/var/
 
+5. Creating an auditing system for the website files, the logs can be found in the /var/log/audit/ folder and can be accessed in the audit.log file. The purpose of auditing is to monitor critical system files to ensure accountability for and errors or mistakes made, and allow a faster responce to solving them.
 
+- sudo apt-get install auditd
+- sudo auditctl-w /home/michael/Desktop/SystemsSoftware/var/www/html -p rwxa
 
 # References
 
