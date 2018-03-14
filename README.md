@@ -1,9 +1,10 @@
 # SystemsSoftware
 Steps to complete this assigment:
 
-1. Create directorys using sudo mkdir -p "directory", to create the following dirs:
-/var/www/html/live/
-/var/www/html/intranet/
+1. Create directorys using sudo mkdir -p "directory", to create the following dirs: 
+
+/var/www/html/live/ 
+/var/www/html/intranet/ 
 /var/websitebackup/
 
 2. Inside the live and intranet folder run the following command sudo touch website.html, this creates a empty html file to test our application.
