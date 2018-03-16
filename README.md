@@ -36,6 +36,14 @@ chmod assigns permissions to the users and groups on the directory. u is the own
 - sudo apt-get install auditd
 - sudo auditctl-w /home/michael/Desktop/SystemsSoftware/var/www/html -p rwxa
 
+6. Creating the c files and the make file. I started off with a basic hello world program to test that my makefile is working, I use a single file daemon.c to create an executable call my daemon, the code for these files can be found on my github linked at the top or my submission.
+
+- touch daemon.c
+- touch makefile
+- make //runs the makefile
+
+7. Preparing the daemon
+
 # References
 
 1. Linux website showing how to give permissions recursively to directorys. 
