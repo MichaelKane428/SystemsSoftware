@@ -1,18 +1,55 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <sys/stat.h>
 #include <time.h>
 
 int main(){
-	void update(void);
-	update();
-	
-	/*int pid = fork();
+		
+	int pid = fork();
 	if(pid > 0){
-		printf("parent\n");
+		exit(EXIT_SUCCESS);
 	}
 	else if(pid == 0){
-		printf("Child\n");
-	}*/
+		//Elevate the orphan to session leader.
+		if(setsid() < 0) {
+			exit(EXIT_FAILURE);
+		}
+		int pid = fork();
+		if(pid > 0){
+			exit(EXIT_SUCCESS);
+		}
+		else{
+			void update(void);
+	
+
+			//http://zetcode.com/articles/cdatetime/
+			//Create a time object to wait for midnight.
+			int hour = 18;
+			int minutes = 42;
+			time_t rawtime = time(NULL);
+			struct tm *ptm =localtime(&rawtime);
+			
+			umask(0);
+		
+			//Change working dir to root.
+			if(chdir("/") < 0) {
+				exit(EXIT_FAILURE);
+			}
+			//Close all open file descriptiors.
+			int i;
+			for(i = sysconf(_SC_OPEN_MAX); i>=0; i--){
+				close(i);
+			}
+	
+			if(hour == ptm->tm_hour && minutes == ptm->tm_min){
+				printf("Update in progress");
+				update();
+			}
+			
+		}
+	}
 	
  return 0;
 
