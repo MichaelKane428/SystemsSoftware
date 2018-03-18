@@ -1,5 +1,8 @@
 # SystemsSoftware
-Steps to complete this assigment:
+The purpose of this assignment is to create a daemon which runs on startup. When the time reaches midnight the daemon checks for differences between 2 folders, updates and backs them up. The program will also be monitored through the use of auditd and syslog.
+
+
+#Steps to complete this assigment:
 
 1. Create directorys using sudo mkdir -p "directory", to create the following dirs: 
 - /home/michael/Desktop/SystemsSoftware/var/www/html/live/ 
@@ -42,12 +45,33 @@ chmod assigns permissions to the users and groups on the directory. u is the own
 - touch makefile
 - make //runs the makefile
 
-7. Preparing the daemon
+7. Creating the daemon.
+
+- Fork to create a parent and child.
+- Kill the parent using exit(EXIT_SUCCESSFUL);
+- Promote the now orphaned child to session leader using setsid()
+- Set the working directory to root.
+- Then insert your logic.
+
+8. Backup and update, To complete this part of the assignment I implemented a function called update which does the following:
+
+- In the main function check to see ifthe time equals 12 midnight.If it does do the following if not it waits until the time is reached.
+- Remove all permissions from the /home/michael/Desktop/SystemsSoftware/var/ folder excluding root as I want a backup incase anything goes wrong.
+- Backup /var/www/html/live/ to /var/websitebackup/ using the cp -a command.
+- Check for a difference between intranet and live if there is no difference do nothing if there is continue to next step.
+- Copy /intranet/ into /live/
+- Add the permissions which where taken away back to the var folder. 
 
 # References
 
 1. Linux website showing how to give permissions recursively to directorys. 
 - https://www.linux.com/learn/how-manage-file-and-folder-permissions-linux
+
+2. Time.h user manual
+- https://www.tutorialspoint.com/c_standard_library/time_h.htm
+
+3. Code to get show the current time.
+- http://zetcode.com/articles/cdatetime/
 
 
 
